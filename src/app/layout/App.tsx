@@ -1,10 +1,15 @@
-import { Button } from 'semantic-ui-react'
+import { Container } from 'semantic-ui-react'
+import EventDashboard from '../../features/events/dashboard/EventDashboard'
+import NavBar from './nav/NavBar'
 
 function App() {
   return (
     <>
-      <h1>Welcome to EventLink</h1>
-      <Button content='Click me' />
+      <NavBar />
+      <Container className='main'>
+        <h1>two</h1>
+        <EventDashboard />
+      </Container>
     </>
   )
 }
