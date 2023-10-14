@@ -1,4 +1,4 @@
-import { SegmentGroup, Item, ItemGroup, Segment } from 'semantic-ui-react'
+import { SegmentGroup, Item, ItemGroup, Segment, Icon } from 'semantic-ui-react'
 
 const EventItem = () => {
   return (
@@ -14,6 +14,13 @@ const EventItem = () => {
           </Item>
         </ItemGroup>
       </Segment>
+      <Segment>
+        <span>
+          <Icon name='clock' /> Date
+          <Icon name='marker' /> Venue
+        </span>
+      </Segment>
+      <Segment></Segment>
     </SegmentGroup>
   )
 }
