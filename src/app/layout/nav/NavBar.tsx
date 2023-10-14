@@ -2,7 +2,7 @@ import { Button, Container, Menu, MenuItem } from 'semantic-ui-react'
 
 const NavBar = () => {
   return (
-    <Menu inverted fixed='top'>
+    <Menu inverted={true} fixed='top'>
       <Container>
         <MenuItem header>
           <img src='/icons/logo.png' alt='logo' />
@@ -10,7 +10,12 @@ const NavBar = () => {
         </MenuItem>
         <MenuItem name='Events' />
         <MenuItem>
-          <Button positive inverted floared='right' content='Create Event' />
+          <Button
+            positive={true}
+            inverted={true}
+            floared='right'
+            content='Create Event'
+          />
         </MenuItem>
         <MenuItem position='right'>
           <Button basic inverted content='Login' />
