@@ -22,7 +22,11 @@ const EventItem = ({ event }: Props) => {
         {/* A Segment is a semantic-ui-react component that we can use to display content. It's a container that can be used to divide up or segment content on a page. */}
         <ItemGroup>
           <Item>
-            <Item.Image size='tiny' circular src={event.hostPhotoURL} />
+            <Item.Image
+              size='tiny'
+              circular
+              src={event.hostPhotoURL || '/icons/user.png'}
+            />
             <Item.Content>
               <Item.Header>{event.title}</Item.Header>
               <Item.Description>Hosted by {event.hostedBy}</Item.Description>
