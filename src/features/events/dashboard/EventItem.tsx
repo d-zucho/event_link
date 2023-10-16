@@ -8,7 +8,7 @@ import {
   Button,
 } from 'semantic-ui-react'
 import EventAttendee from './EventAttendee'
-import { AppEvent } from '../../../app/types/events'
+import { AppEvent } from '../../../app/types/event'
 
 type Props = {
   event: AppEvent
