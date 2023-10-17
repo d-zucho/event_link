@@ -6,10 +6,18 @@ import { createId } from '@paralleldrive/cuid2'
 type Props = {
   setFormOpen: (value: boolean) => void
   addEvent: (event: AppEvent) => void
+  selectedEvent: AppEvent | null
+  updateEvent: (event: AppEvent) => void
 }
+
 //* Form Component *//
-const EventForm = ({ setFormOpen, addEvent }: Props) => {
-  const initialValues = {
+const EventForm = ({
+  setFormOpen,
+  addEvent,
+  selectedEvent,
+  updateEvent,
+}: Props) => {
+  const initialValues = selectedEvent ?? {
     title: '',
     category: '',
     description: '',
@@ -18,16 +26,20 @@ const EventForm = ({ setFormOpen, addEvent }: Props) => {
     date: '',
   }
 
-  const [values, setValues] = useState(initialValues)
+  const [values, setValues] = useState(initialValues) // to store the form values
 
   function onSubmit() {
-    addEvent({
-      ...values,
-      id: createId(),
-      hostedBy: 'Bob',
-      attendees: [],
-      hostPhotoURL: '',
-    })
+    // if the selected event is not null, update the event
+    // the values object contains the updated event details
+    selectedEvent
+      ? updateEvent({ ...selectedEvent, ...values })
+      : addEvent({
+          ...values,
+          id: createId(),
+          hostedBy: 'Bob',
+          attendees: [],
+          hostPhotoURL: '',
+        })
 
     setFormOpen(false)
   }
@@ -39,7 +51,7 @@ const EventForm = ({ setFormOpen, addEvent }: Props) => {
 
   return (
     <Segment clearing>
-      <Header content='Create new event' />
+      <Header content={selectedEvent ? 'Update Event' : 'Create Event'} />
       <Form onSubmit={onSubmit}>
         <Form.Field>
           <input

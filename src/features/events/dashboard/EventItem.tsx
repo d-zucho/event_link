@@ -12,9 +12,11 @@ import { AppEvent } from '../../../app/types/event'
 
 type Props = {
   event: AppEvent
+  selectEvent: (event: AppEvent) => void
+  deleteEvent: (eventId: string) => void
 }
 
-const EventItem = ({ event }: Props) => {
+const EventItem = ({ event, selectEvent, deleteEvent }: Props) => {
   return (
     <SegmentGroup>
       {/* A SegmentGroup is a group of Segments. It's a semantic-ui-react component that we can use to group Segments together. */}
@@ -49,7 +51,18 @@ const EventItem = ({ event }: Props) => {
       </Segment>
       <Segment clearing>
         <span>{event.description}</span>
-        <Button color='teal' floated='right' content='View' />
+        <Button
+          color='red'
+          floated='right'
+          content='Delete'
+          onClick={() => deleteEvent(event.id)}
+        />
+        <Button
+          color='teal'
+          floated='right'
+          content='View'
+          onClick={() => selectEvent(event)}
+        />
       </Segment>
     </SegmentGroup>
   )
