@@ -3,20 +3,13 @@ import EventItem from './EventItem'
 
 type Props = {
   events: AppEvent[]
-  selectEvent: (event: AppEvent) => void
-  deleteEvent: (eventId: string) => void
 }
 
-const EventsList = ({ events, selectEvent, deleteEvent }: Props) => {
+const EventsList = ({ events }: Props) => {
   return (
     <div>
       {events.map((event) => (
-        <EventItem
-          key={event.id}
-          event={event}
-          selectEvent={selectEvent}
-          deleteEvent={deleteEvent}
-        />
+        <EventItem key={event.id} event={event} />
       ))}
     </div>
   )
