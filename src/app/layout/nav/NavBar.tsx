@@ -20,7 +20,7 @@ const NavBar = () => {
             content='Create Event'
           />
         </MenuItem>
-        <MenuItem position='right'>
+        {/* <MenuItem position='right'>
           <Button basic inverted content='Login' />
           <Button
             basic
@@ -28,7 +28,7 @@ const NavBar = () => {
             content='Register'
             style={{ marginLeft: '0.5rem' }}
           />
-        </MenuItem>
+        </MenuItem> */}
       </Container>
     </Menu>
   )
