@@ -1,5 +1,7 @@
 import { NavLink } from 'react-router-dom'
 import { Button, Container, Menu, MenuItem } from 'semantic-ui-react'
+import SignedOutButtons from './SignedOutButtons'
+import SignedInMenu from './SignedInMenu'
 
 const NavBar = () => {
   return (
@@ -29,6 +31,8 @@ const NavBar = () => {
             style={{ marginLeft: '0.5rem' }}
           />
         </MenuItem> */}
+        <SignedInMenu />
+        {/* <SignedOutButtons /> */}
       </Container>
     </Menu>
   )
